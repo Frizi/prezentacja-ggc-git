@@ -1,0 +1,14 @@
+{
+  "theme": "style.css",
+  "highlightTheme": "github",
+  "progress": false,
+  "dependencies": [
+    { "src": "/lib/js/classList.js"},
+    { "src": "/plugin/markdown/marked.js"},
+    { "src": "/plugin/markdown/markdown.js"},
+    { "src": "/plugin/highlight/highlight.js", "async": true},
+    { "src": "/plugin/notes/notes.js", "async": true},
+    { "src": "/plugin/math/math.js", "async": true },
+    { "src": "script.js", "async": true }
+  ]
+}
