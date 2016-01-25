@@ -2,6 +2,7 @@
   "theme": "style.css",
   "highlightTheme": "github",
   "progress": false,
+  "showNotes": true,
   "dependencies": [
     { "src": "/lib/js/classList.js"},
     { "src": "/plugin/markdown/marked.js"},

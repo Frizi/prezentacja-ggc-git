@@ -47,6 +47,5 @@ els.forEach((e) => {
   }
   lines.appendChild(currentLine);
   e.innerHTML = '';
-  console.log(lines.childNodes);
   e.appendChild(lines, e);
 });

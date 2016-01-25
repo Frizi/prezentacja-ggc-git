@@ -1,10 +1,25 @@
 @import "css/theme/white.css";
 
+.reveal h1, .reveal h2, .reval h3, .reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+}
+
+.reveal h1 {
+  font-size: 2.2em;
+}
+
+img[alt="500"] {
+  width: 500px;
+}
+
+img[alt~="rnd"] {
+  border-radius: 50000px;
+}
+
 .slides.slides img {
   border: 0;
   box-shadow: none;
 }
-
 
 .reveal div.code-line {
   padding: 0 5px;
@@ -20,5 +35,14 @@
 }
 
 .reveal pre code {
-  background :white;
+  background: white;
+  color: black;
+}
+
+div.reveal {
+  background: white;
+}
+
+.reveal pre code.lang-bash {
+  margin-top: 60px;
 }
