@@ -46,3 +46,24 @@ div.reveal {
 .reveal pre code.lang-bash {
   margin-top: 60px;
 }
+
+.reveal .qflex {
+  border: none;
+  display: flex;
+  box-shadow: none;
+  flex-wrap: wrap;
+  padding: 0;
+  width: auto;
+}
+
+.qhalf {
+  width: 50% !important;
+  margin: 0;
+  display: block;
+}
+
+
+.qhalf.pad {
+  width: 48% !important;
+  margin: 0 1%;
+}

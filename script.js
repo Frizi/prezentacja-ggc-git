@@ -1,4 +1,6 @@
 hljs.initHighlighting();
+marked.setOptions({pedantic: false});
+
 var els = [].slice.call(document.querySelectorAll("code.hljs"));
 
 function makeLine(className) {

@@ -1,7 +1,7 @@
 {
   "theme": "style.css",
   "highlightTheme": "github",
-  "progress": false,
+  "progress": true,
   "showNotes": true,
   "dependencies": [
     { "src": "/lib/js/classList.js"},
