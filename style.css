@@ -8,10 +8,6 @@
   font-size: 2.2em;
 }
 
-img[alt="500"] {
-  width: 500px;
-}
-
 img[alt~="rnd"] {
   border-radius: 50000px;
 }
@@ -66,4 +62,42 @@ div.reveal {
 .qhalf.pad {
   width: 48% !important;
   margin: 0 1%;
+}
+
+
+.reveal .tree {
+  padding: 0;
+  display: inline-block;
+  width: auto;
+  padding: 0 5px;
+  background: #cff;
+  text-align: left;
+}
+
+.reveal .tree p {
+  margin: 0;
+  white-space: pre;
+  font-family: monospace;
+}
+
+.reveal .absolute {
+  position: absolute !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.reveal .hw {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.reveal .hww {
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+@keyframes flips {
+  0% {transform: scaleX(1);}
+  50% {transform: scaleX(-1);}
 }
