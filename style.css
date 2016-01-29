@@ -1,0 +1,103 @@
+@import "css/theme/white.css";
+
+.reveal h1, .reveal h2, .reval h3, .reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+}
+
+.reveal h1 {
+  font-size: 2.2em;
+}
+
+img[alt~="rnd"] {
+  border-radius: 50000px;
+}
+
+.slides.slides img {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal div.code-line {
+  padding: 0 5px;
+  margin: 0 -5px;
+}
+
+.code-line.diff-add {
+    background-color: #cfc;
+}
+
+.code-line.diff-rem {
+  background-color: #fcc;
+}
+
+.reveal pre code {
+  background: white;
+  color: black;
+}
+
+div.reveal {
+  background: white;
+}
+
+.reveal pre code.lang-bash {
+  margin-top: 60px;
+}
+
+.reveal .qflex {
+  border: none;
+  display: flex;
+  box-shadow: none;
+  flex-wrap: wrap;
+  padding: 0;
+  width: auto;
+}
+
+.qhalf {
+  width: 50% !important;
+  margin: 0;
+  display: block;
+}
+
+
+.qhalf.pad {
+  width: 48% !important;
+  margin: 0 1%;
+}
+
+
+.reveal .tree {
+  padding: 0;
+  display: inline-block;
+  width: auto;
+  padding: 0 5px;
+  background: #cff;
+  text-align: left;
+}
+
+.reveal .tree p {
+  margin: 0;
+  white-space: pre;
+  font-family: monospace;
+}
+
+.reveal .absolute {
+  position: absolute !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.reveal .hw {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.reveal .hww {
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+@keyframes flips {
+  0% {transform: scaleX(1);}
+  50% {transform: scaleX(-1);}
+}

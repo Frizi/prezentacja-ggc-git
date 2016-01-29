@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Reveal.js</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="style.css" id="theme">
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/github.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">Podróże w czasie z GITem
+========================
+
+![](git.png)
+<!-- .element: style="width: 500px;" -->
+</script></section><section  data-markdown><script type="text/template">
+O mnie
+======
+
+
+
+![rnd](https://avatars0.githubusercontent.com/u/919491?v=3&s=140)
+
+Paweł Grabarz
+
+[Frizi @ GitHub](http://github.com/Frizi)
+
+_Frontend Developer_
+</script></section><section ><section data-markdown><script type="text/template">
+opowiem wam historię...
+
+</script></section><section data-markdown><script type="text/template">
+```javascript
+  // superprojekt.js
+  function superProjekt() {
+   return 'Hello, World!';
+  }
+```
+</script></section><section data-markdown><script type="text/template">
+Problem:
+
+- Zmiany? lepiej nie, bo popsuję
+
+</script></section><section data-markdown><script type="text/template">
+Rozwiązanie:
+
+![](copypaste.gif)
+</script></section><section data-markdown><script type="text/template">
+Problem:
+
+![](copy-screen.png)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Wersjonowanie
+
+![](git.png) jest git!
+<!-- .element: style="height: 1em; vertical-align: middle; display: inline-block" -->
+
+</script></section><section data-markdown><script type="text/template">
+otwieramy konsolę
+
+`$ cd Projekty/projektzycia`
+<!-- .element: class="fragment" -->
+
+![](screen-init.png)
+<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+`$ git init`
+
+</script></section><section data-markdown><script type="text/template">
+`$ git commit -m"zaczynamy"`
+
+```bash
+nothing to commit
+
+Untracked files:
+    superprojekt.js
+```
+<!-- .element: class="fragment" style="width: 300px;" -->
+
+Oops..
+<!-- .element: class="fragment" -->
+
+</script></section><section data-markdown><script type="text/template">
+> Commit wymaga przygotowania
+
+`$ git add superprojekt.js`
+
+```javascript
+  // superprojekt.js
++ function superProjekt() {
++   return 'Hello, World!';
++ }
+```
+<!-- .element: class="fragment" -->
+
+> (stage)
+
+<!-- .element: class="fragment tree" -->
+
+
+</script></section><section data-markdown><script type="text/template">
+commit
+
+`$ git commit -m"zaczynamy"`
+
+> (stage)
+
+<!-- .element: class="fragment fade-out absolute tree" data-fragment-index="1" -->
+
+> C1
+
+<!-- .element: class="fragment tree" data-fragment-index="1" -->
+
+
+</script></section><section data-markdown><script type="text/template">
+### \*note to self\*
+
+<!-- .element: style="margin-bottom: 0;" -->
+
+git commit **-m"trochę zmian"**
+
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+
+~~git commit **-m"trochę zmian"**~~
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+git commit **-m"PZ-1 utworzenie pierwszego pliku"**
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+> Zostaw wiadomość dla siebie z przyszłości.
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+</script></section><section data-markdown><script type="text/template">
+## Zmiany, zmiany, zmiany
+</script></section><section data-markdown><script type="text/template">
+```javascript
+  // superprojekt.js
+  function superProjekt() {
+-   return 'Hello, World!';
++   return 'Hello, Geek Girls Carrots!';
+  }
+```
+
+```bash
+git add superprojekt.js
+git commit -m"GGC to mój świat"
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+> C1
+
+<!-- .element: class="fragment fade-out absolute tree" data-fragment-index="2" -->
+
+> C1 -> C2
+
+<!-- .element: class="fragment tree" data-fragment-index="2" -->
+
+</script></section><section data-markdown><script type="text/template">
+> C1 -> C2
+
+<!-- .element: class="tree" -->
+
+
+># C1
+<!-- .element: class="qhalf" -->
+># C2
+<!-- .element: class="qhalf" -->
+```javascript
+  function superProjekt() {
+    return 'Hello, World!';
+  }
+```
+<!-- .element: class="qhalf pad" -->
+```javascript
+  function superProjekt() {
+    return 'Hello, Geek Girls Carrots!';
+  }
+```
+<!-- .element: class="qhalf pad" -->
+
+
+<!-- .element: class="qflex" -->
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+  <!-- .slide: data-background="timetravel.gif" data-background-transition="zoom" -->
+
+## Podróże w czasie
+
+<!-- .element: class="hw" -->
+</script></section><section data-markdown><script type="text/template">
+`$ git checkout C1`
+
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+
+`$ git checkout C2`
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+> \*C1 ->  C2
+
+<!-- .element: class="tree fragment fade-out absolute" data-fragment-index="1" -->
+
+>  C1 -> \*C2
+
+<!-- .element: class="tree fragment" data-fragment-index="1" -->
+
+```javascript
+  function superProjekt() {
+    return 'Hello, World!';
+  }
+```
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+
+```javascript
+  function superProjekt() {
+    return 'Hello, Geek Girls Carrots!';
+  }
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+</script></section><section data-markdown><script type="text/template">
+## nic nie popsujemy!
+
+![](happy-text.gif)
+<!-- .element: style="width: 300px; animation: flips 1s steps(1) infinite" -->
+</script></section><section data-markdown><script type="text/template">
+## nazwy commitów nie są takie ładne
+
+cb9defd36fd8ba1ce380211195bd44279b02264f
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+<!-- .slide: data-background="rozdr.jpg" -->
+
+# branch
+<!-- .element: class="hw" -->
+
+</script></section><section data-markdown><script type="text/template">
+W sumie, to nic wielkiego.
+
+<span>Taka o etykietka.</span>
+<!-- .element: class="fragment" -->
+<span>Ruchoma.</span>
+<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+`$ git checkout <branch>`
+</script></section><section data-markdown><script type="text/template">
+`master` - domyślny branch
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" -->
+```javascript
+  function superProjekt() {
+    return 'Hello, World!';
+  }
+```
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+```javascript
+  function superProjekt() {
+-   return 'Hello, World!';
++   return 'Hello, Geek Girls Carrots!';
+  }
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+>&nbsp;,-\*master
+     >C1
+
+ <!-- .element: class="tree" -->
+`git commit -m"C1"`
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+`git add superprojekt.js`
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+Branch podąża za komendą `commit`.
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" -->
+```javascript
+  function superProjekt() {
+    return 'Hello, Geek Girls Carrots!';
+  }
+```
+>&nbsp;      ,-\*master
+     >C1 -> C2
+
+ <!-- .element: class="tree" -->
+
+`git commit -m"C2"`
+
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" -->
+```javascript
+  function superProjekt() {
+    return 'Hello, Geek Girls Carrots!';
+  }
+```
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+```javascript
+  function superProjekt() {
+-   return 'Hello, Geek Girls Carrots!';
++   return 'Hi, Geek Girls Carrots!';
+  }
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+>&nbsp;      ,-master
+     >C1 -> C2
+>&nbsp;      \`-\*nowy
+
+ <!-- .element: class="tree" -->
+
+`git branch nowy`
+
+`git checkout nowy`
+
+Przestawiamy się na nowy branch <span>i wprowadzamy zmiany</span>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" -->
+```javascript
+  function superProjekt() {
+    return 'Hi, Geek Girls Carrots!';
+  }
+```
+>&nbsp;      ,-master
+     >C1 -> C2
+>&nbsp;      \`-\*nowy
+
+ <!-- .element: class="tree" -->
+
+`git commit -m"C3"`
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" -->
+```javascript
+  function superProjekt() {
+    return 'Hi, Geek Girls Carrots!';
+  }
+```
+>&nbsp;      ,-master
+     >C1 -> C2 -> C3
+>&nbsp;            \`-\*nowy
+
+ <!-- .element: class="tree" -->
+
+`git commit -m"C3"`
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" -->
+```javascript
+  function superProjekt() {
+    return 'Hello, Geek Girls Carrots!';
+  }
+```
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+```javascript
+- function superProjekt() {
+-   return 'Hello, Geek Girls Carrots!';
++ function superProjekt(kto) {
++   return 'Hello, ' + kto + '!';
+  }
++ log(superProjekt('Geek Girls Carrots'));
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+>&nbsp;      ,-\*master
+     >C1 -> C2 -> C3
+>&nbsp;            \`-nowy
+
+ <!-- .element: class="tree" -->
+
+`git checkout master`
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" -->
+
+`git commit -m"C4"`
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" data-transition-speed="fast" -->
+```javascript
+  function superProjekt(kto) {
+    return 'Hello, ' + kto + '!';
+  }
+  log(superProjekt('Geek Girls Carrots'));
+```
+>&nbsp;            ,-\*master
+>&nbsp;      ,--> C4
+     >C1 -> C2 -> C3
+>&nbsp;            \`-nowy
+
+ <!-- .element: class="tree" -->
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="merge.jpg" -->
+
+# merge
+
+<!-- .element: class="hw" -->
+
+#### czyli połączenie zmian
+<!-- .element: class="hw fragment" -->
+</script></section><section data-markdown><script type="text/template">
+`$ git merge <branch>`
+</script></section><section data-markdown><script type="text/template">
+
+<!-- .slide: data-transition="fade" data-transition-speed="fast" -->
+```javascript
+  function superProjekt(kto) {
+    return 'Hello, ' + kto + '!';
+  }
+  log(superProjekt('Geek Girls Carrots'));
+```
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="2" -->
+# ?
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+>&nbsp;            ,-\*master
+>&nbsp;      ,--> C4
+     >C1 -> C2 -> C3
+>&nbsp;            \`-nowy
+
+ <!-- .element: class="tree fragment fade-out absolute" data-fragment-index="1" -->
+
+ >&nbsp;            ,-\*master
+ >&nbsp;      ,--> C4 ->*
+      >C1 -> C2 -> C3 --^
+ >&nbsp;            \`-nowy
+
+ <!-- .element: class="tree fragment" data-fragment-index="1" -->
+
+`git merge nowy`
+<!-- .element: class="fragment" data-fragment-index="1" -->
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="slide" data-transition-speed="fast" -->
+
+# C4 (master)
+```javascript
+  function superProjekt() {
+-   return 'Hello, Geek Girls Carrots!';
++   return 'Hi, Geek Girls Carrots!';
+  }
+```
+
+# +
+
+# C3 (nowy)
+
+```javascript
+- function superProjekt() {
+-   return 'Hello, Geek Girls Carrots!';
++ function superProjekt(kto) {
++   return 'Hello, ' + kto + '!';
+  }
++ log(superProjekt('Geek Girls Carrots'));
+```
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-transition="fade" data-transition-speed="fast" -->
+![](merge-conflicts.jpg)
+<!-- .element: width="700px" -->
+
+</script></section><section data-markdown><script type="text/template">
+# C3 + C4 =
+
+- zmiana `Hello,` na `Hi,`
+- wprowadzenie parametru `kto`
+
+```javascript
+  function superProjekt(kto) {
+    return 'Hi, ' + kto + '!';
+  }
+  log(superProjekt('Geek Girls Carrots'));
+```
+<!-- .element: class="fragment" -->
+
+</script></section><section data-markdown><script type="text/template">
+
+<!-- .slide: data-transition="fade" data-transition-speed="fast" -->
+```javascript
+  function superProjekt(kto) {
+    return 'Hi, ' + kto + '!';
+  }
+  log(superProjekt('Geek Girls Carrots'));
+```
+>&nbsp;
+>&nbsp;                  ,-\*master
+     >C1 -> C2 -> C4 -> C5
+>&nbsp;      \`--> C3 ---^
+>&nbsp;            \`-nowy
+
+ <!-- .element: class="tree" -->
+ `C5` - **merge commit**
+
+</script></section><section data-markdown><script type="text/template">
+![](branching-illustration.png)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="del-pc.gif" class="hww" -->
+
+Świat dzieli się na dwie grupy ludzi:
+
+- ci, którzy robią backup,<!-- .element: class="fragment" -->
+- ci, którzy będą robić backup.<!-- .element: class="fragment" -->
+
+</script></section><section data-markdown><script type="text/template">
+potrzebujemy backupu **z synchronizacją**
+<!-- .element: class="fragment" data-fragment-index="1" -->
+</script></section></section><section ><section data-markdown><script type="text/template">
+GitHub
+======
+
+![](octocat.png)
+<!-- .element: style="width: 500px;" -->
+</script></section><section data-markdown><script type="text/template">
+GitHub
+======
+
+Facebook dla programistów
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="github-explore.png" -->
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="github-react.png" -->
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="github-contrib.png" -->
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="github-pr.png" -->
+
+</script></section><section data-markdown><script type="text/template">
+Gist
+<iframe width="800px" height="500px" src="data:text/html;base64,PHNjcmlwdCBzcmM9Imh0dHBzOi8vZ2lzdC5naXRodWIuY29tL2pvb2t5Ym9pLzY2ODM5NjAuanM/ZmlsZT0zX2NoZWVzZWNha2VfcmVjaXBlLm1kIj48L3NjcmlwdD4="/>
+</script></section></section><section ><section data-markdown><script type="text/template">
+Ok, [robimy repozytorium na GitHubie](https://help.github.com/articles/create-a-repo/)
+
+![](repo-create.png)
+
+</script></section><section data-markdown><script type="text/template">
+`$ git remote add origin <ścieżka>`
+
+<!-- .element: class="fragment fade-out absolute" data-fragment-index="1" style="width: 100%" -->
+
+`$ git remote add origin https://github.com/AnnaKowalska/superprojekt.git`
+
+<!-- .element: class="fragment" data-fragment-index="1" style="width: 140%; margin: 0 -20%;" -->
+
+</script></section><section data-markdown><script type="text/template">
+![](push-pull.jpg)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+![](gitflow.gif)
+<!-- .element: style="width: 50%;" -->
+
+
+</script></section><section data-markdown><script type="text/template">
+# Pytania?
+
+![](fire.png)
+<!-- .element: style="width: 50%;" -->
+
+
+linki: <!-- .element: style="text-align: left; margin-top: 0px" -->
+- [GitHub](https://github.com/)
+- [tutorial Learn Git Branching](http://pcottle.github.io/learnGitBranching/)
+
+<!-- .element: style="text-align: left; width: 100%;" -->
+</script></section></section></div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+              { src: 'plugin/math/math.js', async: true },
+              { src: 'script.js', async: true }
+            ];
+
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default',
+              dependencies: deps
+            };
+
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+
+            var options = {
+              theme: "style.css",
+              highlightTheme: "github",
+              progress: true
+              };
+            options = extend(defaultOptions, options, queryOptions);
+            Reveal.initialize(options);
+        </script>
+    </body>
+</html>
